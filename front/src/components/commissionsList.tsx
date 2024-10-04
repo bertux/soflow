@@ -8,7 +8,7 @@ const commissions = [
   
   const CommissionsList: React.FC = () => {
     return (
-      <div className="bg-gray-800 p-6 rounded-lg col-span-1">
+      <div className="bg-gray-800 p-6 rounded-lg col-span-2">
         <h3 className="text-xl font-bold mb-4">Commissions</h3>
         <ul>
           {commissions.map((commission, index) => (

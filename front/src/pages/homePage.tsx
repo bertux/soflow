@@ -1,8 +1,5 @@
-import CommissionsList from "../components/commissionsList";
-import Statistics from "../components/statistics";
-
 export const HomePage = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <div>Hello !</div>
+      <h1 className="text-4xl font-bold">Hello Emma!</h1>
     </div>
 )
