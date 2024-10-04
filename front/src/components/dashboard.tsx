@@ -1,5 +1,5 @@
 import React from 'react';
-import CommissionsList from './CommissionsList';
+import CommissionsList from './commissionsList';
 import Header from './header';
 import Statistics from './statistics';
 
