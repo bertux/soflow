@@ -1,7 +1,7 @@
-import CommissionsList from "../components/commissionsList";
+import CommissionsList from "../components/apporteurs/commissionsList";
 import Container from "../components/container";
-import Header from "../components/header";
-import Statistics from "../components/statistics";
+import Header from "../components/apporteurs/header";
+import Statistics from "../components/apporteurs/statistics";
 
 export const StatisticsPage = () => <Container>
     <Header />

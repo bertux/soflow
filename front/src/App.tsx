@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './components/header';
-import Statistics from './components/statistics';
-import CommissionsList from './components/commissionsList';
+import Header from './components/apporteurs/header';
+import Statistics from './components/apporteurs/statistics';
+import CommissionsList from './components/apporteurs/commissionsList';
 import { RouteList } from './routeList';
 import Navbar from './components/navbar';
 

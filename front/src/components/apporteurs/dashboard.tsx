@@ -2,7 +2,7 @@ import React from 'react';
 import CommissionsList from './commissionsList';
 import Header from './header';
 import Statistics from './statistics';
-import Container from './container';
+import Container from '../container';
 
 const Dashboard: React.FC = () => {
   return (
