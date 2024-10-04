@@ -7,7 +7,7 @@ const Statistics: React.FC = () => {
           <p className="text-black text-lg pb-2">Commissions du mois</p>
           <h2 className="text-5xl font-semibold">10 000 €</h2>
         </div>
-        <div className="bg-gray-800 p-6 rounded-2xl col-span-2">
+        <div className="bg-[#1E1F21] p-6 rounded-2xl col-span-2">
           <p className="text-gray-200 text-lg pb-2">Commissions en attente</p>
           <h2 className="text-5xl font-semibold">649 €</h2>
         </div>
@@ -15,7 +15,7 @@ const Statistics: React.FC = () => {
           <p className="text-black-200 text-lg pb-2">Produits actifs</p>
           <h2 className="text-4xl font-semibold">53</h2>
         </div>
-        <div className="bg-gray-800 p-6 rounded-2xl">
+        <div className="bg-[#1E1F21] p-6 rounded-2xl">
           <p className="text-gray-200 text-lg pb-2">Évolution des commissions</p>
           <h2 className="text-4xl font-semibold">+25%</h2>
         </div>

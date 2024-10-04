@@ -8,7 +8,7 @@ const Navbar = () => {
             <img src="/logo.png" alt="Logo" className="h-8 mr-2" />
         </Link>
 
-        <div className="hidden md:flex space-x-4 ml-2 menu">
+        <div className="hidden md:flex space-x-4 ml-6 menu">
             <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
             <Link to="/clients" className="hover:text-gray-400">Clients</Link>
             <Link to="/products" className="hover:text-gray-400">Produits</Link>

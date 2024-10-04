@@ -20,7 +20,7 @@ const commissions = [
   
   const CommissionsList: React.FC = () => {
     return (
-      <div className="bg-gray-800 p-6 rounded-lg col-span-2">
+      <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2">
         <h3 className="text-xl font-bold mb-4">Commissions</h3>
         <div className="grid grid-cols-4 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
           <span className="font-bold">Client</span>
