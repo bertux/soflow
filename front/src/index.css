@@ -9,22 +9,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif; 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.navbar {
-  height: 90px;
-  padding: 10px 30px;
-}
-
-.navbar .logo img{
-  height: 70px;
-}
-
-.menu a {
-  font-size: 22px;
 }

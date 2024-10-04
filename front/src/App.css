@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbar {
+  height: 90px;
+  padding: 10px 30px;
+}
+
+.navbar .logo img{
+  height: 70px;
+}
+
+.menu a {
+  font-size: 22px;
+}
