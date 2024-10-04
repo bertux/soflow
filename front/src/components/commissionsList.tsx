@@ -1,9 +1,23 @@
 import React from 'react';
 
 const commissions = [
-    { client: 'Seb', product: 'Actifry Simple One', date: '30/09/2024', amount: '25 €', isPaid: true },
-    { client: 'Xerox', product: 'Imprimante Xerox 120', date: '30/09/2024', amount: '120 €', isPaid: false },
-  ];
+  { client: 'Seb', product: 'Actifry Simple One', date: '30/09/2024', amount: '25 €', isPaid: true },
+  { client: 'Xerox', product: 'Imprimante Xerox 120', date: '30/09/2024', amount: '120 €', isPaid: false },
+  { client: 'Samsung', product: 'Télévision 55"', date: '29/09/2024', amount: '750 €', isPaid: true },
+  { client: 'Apple', product: 'iPhone 14', date: '28/09/2024', amount: '999 €', isPaid: false },
+  { client: 'Sony', product: 'Casque Audio WH-1000XM4', date: '27/09/2024', amount: '350 €', isPaid: true },
+  { client: 'Bose', product: 'Enceinte portable', date: '26/09/2024', amount: '200 €', isPaid: false },
+  { client: 'Dell', product: 'Ordinateur Portable Inspiron', date: '25/09/2024', amount: '800 €', isPaid: true },
+  { client: 'HP', product: 'Souris sans fil', date: '24/09/2024', amount: '50 €', isPaid: true },
+  { client: 'Microsoft', product: 'Surface Pro', date: '23/09/2024', amount: '1200 €', isPaid: false },
+  { client: 'LG', product: 'Réfrigérateur Smart', date: '22/09/2024', amount: '1500 €', isPaid: true },
+  { client: 'Nikon', product: 'Appareil Photo DSLR', date: '21/09/2024', amount: '600 €', isPaid: false },
+  { client: 'GoPro', product: 'Caméra HERO9', date: '20/09/2024', amount: '450 €', isPaid: true },
+  { client: 'Lenovo', product: 'Tablette Yoga', date: '19/09/2024', amount: '300 €', isPaid: false },
+  { client: 'Asus', product: 'Ordinateur Portable ROG', date: '18/09/2024', amount: '1200 €', isPaid: true },
+  { client: 'Amazon', product: 'Echo Dot', date: '17/09/2024', amount: '50 €', isPaid: false },
+  { client: 'Fitbit', product: 'Montre connectée', date: '16/09/2024', amount: '150 €', isPaid: true },
+];
 
   interface IconProps {
     isPaid: boolean; // Définir le type de 'isPaid' comme boolean
@@ -20,7 +34,7 @@ const commissions = [
   
   const CommissionsList: React.FC = () => {
     return (
-      <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2">
+      <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2 overflow-y-auto">
         <h3 className="text-xl font-bold mb-4">Commissions</h3>
         <div className="grid grid-cols-4 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
           <span className="font-bold">Client</span>

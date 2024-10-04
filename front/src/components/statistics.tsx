@@ -2,7 +2,7 @@ import React from 'react';
 
 const Statistics: React.FC = () => {
     return (
-      <div className="col-span-1 grid grid-cols-2 gap-4">
+      <div className="col-span-1 grid grid-cols-2 gap-4 stats">
         <div className="bg-[#BCCAE1] p-6 rounded-2xl text-black col-span-2">
           <p className="text-black text-lg pb-2">Commissions du mois</p>
           <h2 className="text-5xl font-semibold">10 000 €</h2>

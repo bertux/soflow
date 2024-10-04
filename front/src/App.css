@@ -50,3 +50,7 @@
 .menu a {
   font-size: 18px;
 }
+
+.stats {
+  height: 600px;
+}
