@@ -1,10 +1,23 @@
 import React from 'react';
 
 const commissions = [
-    { client: 'Seb', product: 'Actifry Simple One', date: '30/09/2024', amount: '25 €' },
-    { client: 'Xerox', product: 'Imprimante Xerox 120', date: '30/09/2024', amount: '120 €' },
+    { client: 'Seb', product: 'Actifry Simple One', date: '30/09/2024', amount: '25 €', isPaid: true },
+    { client: 'Xerox', product: 'Imprimante Xerox 120', date: '30/09/2024', amount: '120 €', isPaid: false },
     // Add the rest here
   ];
+
+  interface IconProps {
+    isPaid: boolean; // Définir le type de 'isPaid' comme boolean
+  }
+
+  const PaidIcon: React.FC<IconProps> = ({ isPaid }) => (
+    <img 
+      src={`/${isPaid ? "paid" : "notPaid"}.png`} 
+      alt={isPaid ? "Paid" : "Not Paid"} 
+      className="ml-1" 
+      width="24px"
+    />
+  );
   
   const CommissionsList: React.FC = () => {
     return (
@@ -16,7 +29,7 @@ const commissions = [
               <span>{commission.client}</span>
               <span>{commission.product}</span>
               <span>{commission.date}</span>
-              <span className="font-bold">{commission.amount}</span>
+              <span className="font-bold flex rounded-full bg-gray-900 px-2 py-1">{commission.amount} <PaidIcon isPaid={commission.isPaid} /> </span>
             </li>
           ))}
         </ul>
