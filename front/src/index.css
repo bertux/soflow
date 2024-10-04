@@ -16,3 +16,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.tracking-1pc {
+  letter-spacing: 0.01em; /* Environ 1% d'espacement */
+}
