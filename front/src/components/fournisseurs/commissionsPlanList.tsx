@@ -2,7 +2,7 @@ import React from 'react';
 import { CommissionPlan } from '../../models/commissionPlan';
 
 interface CommissionPlanListProps {
-  commissionPlans: CommissionPlan[];
+  commissionPlans?: CommissionPlan[];
 }
 
   const CommissionPlanList: React.FC<CommissionPlanListProps> = ({ commissionPlans }) => {
@@ -16,7 +16,7 @@ interface CommissionPlanListProps {
           <span className="font-bold">Apporteur d'affaires</span>
         </div>
         <ul className="p-2">
-          {commissionPlans.map((commission, index) => (
+          {commissionPlans?.map((commission, index) => (
             <li key={index} className="grid grid-cols-4 py-2">
               <span>{commission.commissionRate}</span>
               <span>{commission.startAt}</span>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../models/product';
 import productService from '../services/productService';
-import CommissionPlanList from '../components/apporteurs/commissionsPlanList';
+import CommissionPlanList from '../components/fournisseurs/commissionsPlanList';
 
 const ProductListPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -52,8 +52,6 @@ const ProductListPage: React.FC = () => {
           <p className="mt-4 font-bold">Prix : {product.price} € / mois</p>
         </div>
       </div>
-
-      <CommissionPlanList commissionplans={CommissionPlanList} />
     </div>
   );
 };
