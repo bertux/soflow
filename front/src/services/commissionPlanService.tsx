@@ -31,6 +31,15 @@ class CommissionPlanService {
     }
   }
 
+  async getAllApporteurs(): Promise<any[]> {
+    try {
+      const response = await axios.get(`${API_URL}/commission-plans/affiliate`);
+      return response.data;
+    } catch (error) {
+      throw new Error(`Erreur lors de la récupération des plans de commission: ${error}`);
+    }
+  }
+
   // Récupérer un plan de commission par ID
   async getCommissionPlanById(id: string): Promise<any> {
     try {

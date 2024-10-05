@@ -32,6 +32,11 @@ class CommissionPlanRepository {
   async getAllCommissionPlansCurrent(userId: string) {
     return await CommissionPlanModel.find({ userId: new ObjectId(userId)});
   }
+  
+  async getByProductIds(productIds: string[]) {
+    const objectIds = productIds.map(id => new ObjectId(id));
+    return await CommissionPlanModel.find({ productId: { $in: objectIds } });
+  }
 }
 
 export const commissionPlanRepository = new CommissionPlanRepository();

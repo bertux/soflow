@@ -82,6 +82,36 @@ class CommissionPlanController {
     }
   }
 
+  async getAllAffiliates(req: Request, res: Response): Promise<any> {
+    try {
+        const userId = getCurrentUserId(req);    
+
+        const products = await productService.getAll(userId);
+        const commissionPlans : ICommissionPlan[] = await commissionPlanService.getByProductIds(products.map(a => a._id));
+
+      const result = await Promise.all(commissionPlans?.map(async a => {
+            const product = a.productId && products.find(p => p._id.toString() === a.productId.toString());
+            const affiliate = a.userId && await userService.getUserById(a.userId);
+            const r = {
+                _id: a._id,
+                commissionRate: a.commissionRate,
+                startAt: a.startAt,
+                endAt: a.endAt,
+                user: affiliate,
+                product: product
+            }
+
+        return r;
+      }));
+
+      res.json(result);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+
+  
+
   async update(req: Request, res: Response): Promise<any> {
     try {
       const commissionPlan: ICommissionPlan|null = await commissionPlanService.update(req.params.id, req.body);

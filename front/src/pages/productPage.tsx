@@ -4,8 +4,8 @@ import { Product } from '../models/product';
 import productService from '../services/productService';
 import { CommissionPlan } from '../models/commissionPlan';
 import commissionPlanService from '../services/commissionPlanService';
-import CommissionPlanList from '../components/fournisseurs/commissionsPlanList';
 import Container from '../components/container';
+import CommissionPlanList from '../components/apporteurs/commissionsPlanList';
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();

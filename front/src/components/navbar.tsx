@@ -22,7 +22,7 @@ const Navbar = () => {
   const renderFournisseurMenu = () => (
     <div className="hidden md:flex space-x-4 ml-6 menu">
         <Link to="/products" className="hover:text-gray-400">Produits</Link>
-        <Link to="/clients" className="hover:text-gray-400">Apporteur d'affaires</Link>
+        <Link to="/affiliate" className="hover:text-gray-400">Apporteur d'affaires</Link>
         <Link to="/dashboard" className="hover:text-gray-400">Commissions</Link>
     </div>
   )

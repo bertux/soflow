@@ -9,6 +9,7 @@ import LoginPage from './pages/loginPage';
 import ProductPage from './pages/productPage';
 import ProductListPage from './pages/productListPage';
 import ClientListPage from './pages/clientListPage';
+import AffiliateListPage from './pages/affiliateListPage';
 
 export const RouteList = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ export const RouteList = () => (
       <Route path="/products/:id" element={<ProductPage />} />
       <Route path="/products" element={<ProductListPage />} />
       <Route path="/contracts" element={<ClientListPage />} />
+      <Route path="/affiliate" element={<AffiliateListPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
