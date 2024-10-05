@@ -38,7 +38,10 @@ const ProductListPage: React.FC = () => {
 
   return (
     <Container>
-      <h1 className="text-2xl font-bold mb-6 text-white">Tous vos produits</h1>
+      <div className="flex mb-4 justify-between items-center">
+        <h1 className="text-2xl font-bold mb-6 text-white">Tous vos produits</h1>
+        <button className="rounded-full bg-[#2A2F37] px-3 py-2">Ajouter un produit</button>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <Link to={`/products/${product._id}`} >
