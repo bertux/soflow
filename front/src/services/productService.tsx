@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Product } from '../models/product';
-
-const API_URL = 'http://localhost:4000'; // Remplacez par l'URL de votre API
+import { API_URL } from '../utils/utils';
 
 const productService = {
   // Créer un produit

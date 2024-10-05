@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:4000';
+import { API_URL } from '../utils/utils';
 
 interface User {
   _id?: string;
