@@ -31,6 +31,7 @@ const userController = new UserController();
 app.post('/api/auth/register', (req, res) => authController.register(req, res));
 app.post('/api/auth/login', (req, res) => authController.login(req, res));
 
+app.get('/api/user/current', (req, res) => userController.getCurrentUser(req, res));
 app.get('/api/user/:id', (req, res) => userController.getUser(req, res));
 
 app.post('/api/commission-plans', (req, res) => commissionPlanController.create(req, res));

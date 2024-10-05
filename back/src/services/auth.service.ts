@@ -14,7 +14,9 @@ export class AuthService {
     const user = await this.userRepository.findByEmail(email);
     if (!user) return null;
 
-    const token = generateToken(user._id);
+    if (password !== user.password)
+      throw "bad credentials";
+    const token = generateToken(user._id.toString());
     return { user, token };
   }
 }

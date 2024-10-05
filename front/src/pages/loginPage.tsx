@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Container from '../components/container';
 import { useUserContext } from '../context/user.context';
 import { login } from '../services/authService';
+import axios from 'axios';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -16,8 +17,9 @@ const LoginPage = () => {
     try {
       const user = await login(email, password);
       localStorage.setItem('token', user.token);
+      setCurrentUser(user);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${user.token}`;
       window.location.href = "http://localhost:3000/dashboard"
-      setCurrentUser(user)
     } catch (error) {
       setError('Invalid credentials');
     }

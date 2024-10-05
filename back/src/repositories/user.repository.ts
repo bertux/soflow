@@ -1,4 +1,5 @@
 import { UserModel, IUser } from '../models/user.model';
+import { ObjectId } from 'mongodb';
 
 export class UserRepository {
   async findByEmail(email: string): Promise<IUser | null> {
@@ -10,6 +11,6 @@ export class UserRepository {
   }
 
   async findById(userId: string): Promise<IUser | null> {
-    return await UserModel.findById(userId);
+    return await UserModel.findById(new ObjectId(userId));
   }
 }

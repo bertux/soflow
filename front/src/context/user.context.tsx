@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { IUser } from '../models/user';
 import { login } from '../services/authService';
+import { API_URL } from '../utils/utils';
 
 interface IUserContext {
   currentUser: IUser | null;
@@ -20,7 +21,9 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get('/api/user');
+        if (!axios.defaults.headers.common['Authorization'])
+          axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        const response = await axios.get(`${API_URL}/user/current`);
         setCurrentUser(response.data);
       } catch (err) {
         setError('Unable to fetch current user');

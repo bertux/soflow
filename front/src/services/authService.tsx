@@ -24,6 +24,7 @@ export const login = async (email: string, password: string) => {
 
 export const logout = () => {
   localStorage.removeItem('token');
+  axios.defaults.headers.common['Authorization'] = null;
 };
 
 export const getToken = () => {
