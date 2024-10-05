@@ -9,7 +9,7 @@ interface CommissionPlanListProps {
     return (
       <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2 overflow-y-auto">
         <h3 className="text-xl font-bold mb-4">Plan de commissions</h3>
-        <div className="grid grid-cols-4 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
+        <div className="grid grid-cols-5 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
           <span className="font-bold">Apporteur d'affaires</span>
           <span className="font-bold">Produit</span>
           <span className="font-bold">Commission</span>
