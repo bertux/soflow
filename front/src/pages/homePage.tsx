@@ -28,7 +28,7 @@ export const HomePage = () => (
 
       <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
         <div className="text-center">
-          <img src="/1.webp" alt="Gestion des commissions" className="mx-auto w-96 mb-4" />
+          <img src="/visual/1.webp" alt="Gestion des commissions" className="mx-auto w-96 mb-4" />
           <h3 className="text-xl font-semibold">Gestion des Commissions</h3>
           <p className="text-white mt-2">
             Automatisez et gérez facilement toutes les commissions de vos apporteurs d'affaires, sans erreurs.
@@ -36,7 +36,7 @@ export const HomePage = () => (
         </div>
 
         <div className="text-center">
-          <img src="/2.webp" alt="Suivi en temps réel" className="mx-auto w-96 mb-4" />
+          <img src="/visual/2.webp" alt="Suivi en temps réel" className="mx-auto w-96 mb-4" />
           <h3 className="text-xl font-semibold">Suivi en Temps Réel</h3>
           <p className="text-white mt-2">
             Consultez les commissions en temps réel et restez informé des paiements à venir et des performances.
@@ -44,7 +44,7 @@ export const HomePage = () => (
         </div>
 
         <div className="text-center">
-          <img src="/3.webp" alt="Paiements instantanés" className="mx-auto w-96 mb-4" />
+          <img src="/visual/3.webp" alt="Paiements instantanés" className="mx-auto w-96 mb-4" />
           <h3 className="text-xl font-semibold">Paiements Instantanés</h3>
           <p className="text-white mt-2">
             Effectuez des paiements immédiats, rapides et sécurisés, directement depuis So Flow.

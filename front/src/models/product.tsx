@@ -1,11 +1,10 @@
 import { CommissionPlan } from "./commissionPlan";
 
 export interface Product {
-    id?: string; // Optionnel pour la création
+    id?: string; 
     title: string;
     description: string;
-    avatar: string; // URL ou chemin vers l'image de l'avatar
+    avatar: string; 
     price: number;
     commissionPlan: CommissionPlan;
 }
-  
