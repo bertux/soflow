@@ -2,7 +2,7 @@ import React from 'react';
 import { useUserContext } from '../../context/user.context';
 
 const Header: React.FC = () => {
-    const { currentUser, loading, error } = useUserContext();
+    const { currentUser } = useUserContext();
 
     return (
       <div>
