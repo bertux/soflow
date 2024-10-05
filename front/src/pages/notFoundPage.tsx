@@ -1,5 +1,7 @@
+import Container from "../components/container";
+
 export const NotFoundPage = () => (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      <div>4O4 !</div>
-    </div>
+    <Container>
+      <div className="text-3xl text-center">4O4 !</div>
+    </Container>
 )
