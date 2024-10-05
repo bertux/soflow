@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Product } from '../models/product';
 import { CommissionPlan } from '../models/commissionPlan';
 import commissionPlanService from '../services/commissionPlanService';
 import Container from '../components/container';
