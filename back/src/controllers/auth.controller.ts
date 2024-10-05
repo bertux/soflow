@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { AuthService } from '../services/auth.service';
 
 class AuthController {
-  private authService = new AuthService();
+  private authService: AuthService = new AuthService();
 
   async register(req: Request, res: Response): Promise<void> {
     try {

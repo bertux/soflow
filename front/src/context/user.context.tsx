@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { IUser } from '../models/user';
+import { login } from '../services/authService';
 
 interface IUserContext {
   currentUser: IUser | null;
   loading: boolean;
   error: string | null;
+  setCurrentUser: any;
 }
 
 const UserContext = createContext<IUserContext | undefined>(undefined);
@@ -31,7 +33,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   return (
-    <UserContext.Provider value={{ currentUser, loading, error }}>
+    <UserContext.Provider value={{ currentUser, loading, error, setCurrentUser }}>
       {children}
     </UserContext.Provider>
   );

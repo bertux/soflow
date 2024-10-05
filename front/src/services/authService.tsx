@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { API_URL } from '../utils/utils';
 
-export const login = async (username: string, password: string) => {
+export const login = async (email: string, password: string) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, {
-      username,
+    const response = await axios.post(`${API_URL}/auth/login`, {
+      email,
       password,
     });
 
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
     }
-
+    
     return response.data;
   } catch (error: any) {
     if (error.response && error.response.status === 401) {

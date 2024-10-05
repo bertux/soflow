@@ -1,19 +1,23 @@
 import { useState } from 'react';
-import { login } from '../services/authService';
 import Container from '../components/container';
+import { useUserContext } from '../context/user.context';
+import { login } from '../services/authService';
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { setCurrentUser } = useUserContext();
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
     setError('');
 
     try {
-      const { token } = await login(username, password);
-      localStorage.setItem('token', token);
+      const user = await login(email, password);
+      localStorage.setItem('token', user.token);
+      window.location.href = "http://localhost:3000/dashboard"
+      setCurrentUser(user)
     } catch (error) {
       setError('Invalid credentials');
     }
@@ -26,12 +30,12 @@ const LoginPage = () => {
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-m font-medium text-white">Email</label>
+            <label htmlFor="email" className="block text-m font-medium text-white">Email</label>
             <input
               type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="text-black mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
             />
           </div>

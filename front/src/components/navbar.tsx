@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const renderApporteurMenu = () => (
       <div className="hidden md:flex space-x-4 ml-6 menu">
-        <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
+        <Link to="/dashboard" className="hover:text-gray-400">Commissions</Link>
         <Link to="/clients" className="hover:text-gray-400">Clients</Link>
         <Link to="/products" className="hover:text-gray-400">Produits</Link>
     </div>
@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className="hidden md:flex space-x-4 ml-6 menu">
         <Link to="/products" className="hover:text-gray-400">Produits</Link>
         <Link to="/clients" className="hover:text-gray-400">Apporteur d'affaires</Link>
-        <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
+        <Link to="/dashboard" className="hover:text-gray-400">Commissions</Link>
     </div>
   )
 

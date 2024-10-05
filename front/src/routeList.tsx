@@ -14,7 +14,7 @@ export const RouteList = () => (
   <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/stats" element={<StatisticsPage />} />
+      <Route path="/dashboard" element={<StatisticsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/products/:id" element={<ProductPage />} />
       <Route path="/products" element={<ProductListPage />} />

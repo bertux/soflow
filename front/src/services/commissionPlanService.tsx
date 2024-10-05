@@ -45,7 +45,7 @@ class CommissionPlanService {
   // Supprimer un plan de commission par ID
   async deleteCommissionPlan(id: string): Promise<void> {
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await axios.delete(`${API_URL}/commission-plans/${id}`);
     } catch (error) {
       throw new Error(`Erreur lors de la suppression du plan de commission: ${error}`);
     }
