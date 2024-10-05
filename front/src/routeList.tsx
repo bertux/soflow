@@ -19,7 +19,7 @@ export const RouteList = () => (
       <Route path="/login" element={<LoginPage />} />
       <Route path="/products/:id" element={<ProductPage />} />
       <Route path="/products" element={<ProductListPage />} />
-      <Route path="/clients" element={<ClientListPage />} />
+      <Route path="/contracts" element={<ClientListPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
