@@ -61,7 +61,7 @@ const ProductPage: React.FC = () => {
       <h1 className="text-3xl font-bold">{product.title}</h1>
       <div className="flex flex-col md:flex-row mt-4">
         <div className="flex-shrink-0">
-          <img src={product.avatar} alt={product.title} className="w-48 h-48 object-cover" />
+          <img src={`product/${product.avatar}`} alt={product.title} className="w-48 h-48 object-cover" />
         </div>
         <div className="ml-4">
           <h2 className="text-xl">Les informations</h2>

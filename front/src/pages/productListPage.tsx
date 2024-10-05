@@ -44,7 +44,7 @@ const ProductListPage: React.FC = () => {
             className="bg-gray-800 p-4 rounded-lg shadow-md transition-transform transform hover:scale-105"
           >
             <img
-              src={product.avatar}
+              src={`product/${product.avatar}`}
               alt={product.title}
               className="w-full h-32 object-cover rounded-t-lg"
             />
