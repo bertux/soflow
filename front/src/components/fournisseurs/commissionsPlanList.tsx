@@ -18,10 +18,17 @@ interface CommissionPlanListProps {
         <ul className="p-2">
           {commissionPlans?.map((commission, index) => (
             <li key={index} className="grid grid-cols-4 py-2">
-              <span>{commission.commissionRate}</span>
+              <span>{commission.commissionRate} %</span>
               <span>{commission.startAt}</span>
               <span>{commission.endAt}</span>
-              <span>{commission.affiliate}</span>
+              <span className='flex items-center'>
+                <img
+                  src={`/avatar/${commission.user?.avatar}`}
+                  alt="Avatar"
+                  className="h-10 w-10 rounded-full mr-2"
+                />
+                {commission.user?.name}
+              </span>
             </li>
           ))}
         </ul>

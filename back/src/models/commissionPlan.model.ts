@@ -4,7 +4,15 @@ export interface ICommissionPlan extends Document {
     commissionRate: number; 
     startAt: string; 
     endAt: string; 
-    affiliateId: string;
+    userId: string;
+    productId: string;
+  }
+
+  export interface ICommissionPlanDto {
+    commissionRate: number; 
+    startAt: string; 
+    endAt: string; 
+    user: object;
     productId: string;
   }
   
@@ -13,7 +21,7 @@ export interface ICommissionPlan extends Document {
     startAt: { type: String, required: true },
     endAt: { type: String, required: true },
     productId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    affiliateId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   });
   
   export const CommissionPlanModel = mongoose.model<ICommissionPlan>('CommissionPlan', commissionPlanSchema);

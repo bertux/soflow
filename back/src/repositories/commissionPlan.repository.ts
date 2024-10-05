@@ -25,8 +25,8 @@ class CommissionPlanRepository {
   }
 
   // Obtenir tous les plans de commission
-  async getAllCommissionPlans() {
-    return await CommissionPlanModel.find();
+  async getAllCommissionPlans(productId: string) {
+    return await CommissionPlanModel.find({ productId: new ObjectId(productId)});
   }
 }
 
