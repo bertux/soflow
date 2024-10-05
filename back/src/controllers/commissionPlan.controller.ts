@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { ICommissionPlan } from '../models/commissionPlan.model';
 import { commissionPlanService } from '../services/commissionPlan.service';
 import { userService } from '../services/user.service';
+import { getCurrentUserId } from '../utils/jwt.util';
+import { productService } from '../services/product.service';
 
 class CommissionPlanController {
   async create(req: Request, res: Response): Promise<void> {
@@ -28,7 +30,7 @@ class CommissionPlanController {
 
   async getAll(req: Request, res: Response): Promise<any> {
     try {
-        const { productId }  = req.query;
+        const { productId } = req.query;
         
         if (!req.query.productId)
             return null;
@@ -43,6 +45,32 @@ class CommissionPlanController {
             startAt: a.startAt,
             endAt: a.endAt,
             user: affiliate
+        }
+
+        return r;
+      }));
+
+      res.json(result);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+
+  async getAllCurrent(req: Request, res: Response): Promise<any> {
+    try {
+        const userId = getCurrentUserId(req);    
+        const commissionPlans : ICommissionPlan[] = await commissionPlanService.getAllCurrent(userId);
+
+      const result = await Promise.all(commissionPlans.map(async a => {
+            const product = await productService.getById(a.productId);
+            const client = await userService.getUserById(a.userId);
+            const r = {
+            _id: a._id,
+            commissionRate: a.commissionRate,
+            startAt: a.startAt,
+            endAt: a.endAt,
+            user: client,
+            product: product
         }
 
         return r;

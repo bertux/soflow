@@ -5,5 +5,5 @@ export interface CommissionPlan {
     startAt: string; 
     endAt: string; 
     user: IUser;
-    productId: string;
+    product: string;
   }

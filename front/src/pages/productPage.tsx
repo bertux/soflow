@@ -30,7 +30,7 @@ const ProductPage: React.FC = () => {
   const fetchCommissionPlans = async () => {
     try {
       if (id) {
-        const response = await commissionPlanService.getAllCommissionPlans(id)
+        const response = await commissionPlanService.getAllCommissionPlansByProductId(id)
         setCommissionPlans(response);
       }
     } catch (error: any) {

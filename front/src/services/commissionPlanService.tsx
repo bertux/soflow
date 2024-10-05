@@ -13,9 +13,18 @@ class CommissionPlanService {
   }
 
   // Récupérer tous les plans de commission
-  async getAllCommissionPlans(productId: string): Promise<any[]> {
+  async getAllCommissionPlansByProductId(productId: string): Promise<any[]> {
     try {
       const response = await axios.get(`${API_URL}/commission-plans?productId=${productId}`);
+      return response.data;
+    } catch (error) {
+      throw new Error(`Erreur lors de la récupération des plans de commission: ${error}`);
+    }
+  }
+
+  async getAllCommissionPlans(): Promise<any[]> {
+    try {
+      const response = await axios.get(`${API_URL}/commission-plans/current`);
       return response.data;
     } catch (error) {
       throw new Error(`Erreur lors de la récupération des plans de commission: ${error}`);

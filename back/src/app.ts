@@ -13,16 +13,18 @@ app.use(cors());
 
 const PORT = config.port;
 
-mongoose.connect(config.mongoUri)
-  .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+if (config.mongoUri) {
+  mongoose.connect(config.mongoUri)
+    .then(() => {
+      console.log('Connected to MongoDB');
+      app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+    })
+    .catch((error) => {
+      console.error('MongoDB connection error:', error);
     });
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+  }
 
 const authController = new AuthController();
 const userController = new UserController();
@@ -37,6 +39,7 @@ app.get('/api/user/:id', (req, res) => userController.getUser(req, res));
 app.post('/api/commission-plans', (req, res) => commissionPlanController.create(req, res));
 app.get('/api/commission-plans/:id', (req, res) => commissionPlanController.getById(req, res));
 app.get('/api/commission-plans', (req, res) => commissionPlanController.getAll(req, res));
+app.get('/api/commission-plans/current', (req, res) => commissionPlanController.getAllCurrent(req, res));
 app.put('/api/commission-plans/:id', (req, res) => commissionPlanController.update(req, res));
 app.delete('/api/commission-plans/:id', (req, res) => commissionPlanController.delete(req, res));
 

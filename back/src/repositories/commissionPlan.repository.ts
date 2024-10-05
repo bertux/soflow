@@ -28,6 +28,11 @@ class CommissionPlanRepository {
   async getAllCommissionPlans(productId: string) {
     return await CommissionPlanModel.find({ productId: new ObjectId(productId)});
   }
+
+  async getAllCommissionPlansCurrent(clientId: string) {
+    console.log(clientId)
+    return await CommissionPlanModel.find({ userId: new ObjectId(clientId)});
+  }
 }
 
 export const commissionPlanRepository = new CommissionPlanRepository();

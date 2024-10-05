@@ -14,6 +14,11 @@ class CommissionPlanService {
     return await commissionPlanRepository.getAllCommissionPlans(productId);
   }
 
+  
+  async getAllCurrent(userId: string): Promise<ICommissionPlan[]> {
+    return await commissionPlanRepository.getAllCommissionPlansCurrent(userId);
+  }
+
   async update(id: string, data: Partial<ICommissionPlan>): Promise<ICommissionPlan | null> {
     return await commissionPlanRepository.updateCommissionPlan(id, data);
   }

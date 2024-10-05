@@ -20,7 +20,7 @@ export interface ICommissionPlan extends Document {
     commissionRate: { type: Number, required: true },
     startAt: { type: String, required: true },
     endAt: { type: String, required: true },
-    productId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   });
   
