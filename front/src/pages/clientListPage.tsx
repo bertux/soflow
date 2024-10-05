@@ -36,7 +36,7 @@ const ClientListPage: React.FC = () => {
       <h1 className="text-3xl font-bold">Clients</h1>
       <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2 overflow-y-auto">
         <h3 className="text-xl font-bold mb-4">Plan de commissions</h3>
-        <div className="grid grid-cols-4 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
+        <div className="grid grid-cols-5 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
           <span className="font-bold">Produit</span>
           <span className="font-bold">Commission</span>
           <span className="font-bold">Date début</span>
@@ -45,8 +45,8 @@ const ClientListPage: React.FC = () => {
         </div>
         <ul className="p-2">
           {commissionPlans?.map((commission, index) => (
-            <li key={index} className="grid grid-cols-4 py-2">
-              <span>{commission.product}</span>
+            <li key={index} className="grid grid-cols-5 py-2">
+              <span>{commission.product?.title}</span>
               <span>{commission.commissionRate} %</span>
               <span>{commission.startAt}</span>
               <span>{commission.endAt}</span>

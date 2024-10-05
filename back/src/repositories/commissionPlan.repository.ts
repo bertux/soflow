@@ -29,9 +29,8 @@ class CommissionPlanRepository {
     return await CommissionPlanModel.find({ productId: new ObjectId(productId)});
   }
 
-  async getAllCommissionPlansCurrent(clientId: string) {
-    console.log(clientId)
-    return await CommissionPlanModel.find({ userId: new ObjectId(clientId)});
+  async getAllCommissionPlansCurrent(userId: string) {
+    return await CommissionPlanModel.find({ userId: new ObjectId(userId)});
   }
 }
 

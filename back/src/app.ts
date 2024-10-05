@@ -37,9 +37,9 @@ app.get('/api/user/current', (req, res) => userController.getCurrentUser(req, re
 app.get('/api/user/:id', (req, res) => userController.getUser(req, res));
 
 app.post('/api/commission-plans', (req, res) => commissionPlanController.create(req, res));
+app.get('/api/commission-plans/current', (req, res) => commissionPlanController.getAllCurrent(req, res));
 app.get('/api/commission-plans/:id', (req, res) => commissionPlanController.getById(req, res));
 app.get('/api/commission-plans', (req, res) => commissionPlanController.getAll(req, res));
-app.get('/api/commission-plans/current', (req, res) => commissionPlanController.getAllCurrent(req, res));
 app.put('/api/commission-plans/:id', (req, res) => commissionPlanController.update(req, res));
 app.delete('/api/commission-plans/:id', (req, res) => commissionPlanController.delete(req, res));
 

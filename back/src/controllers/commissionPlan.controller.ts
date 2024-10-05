@@ -61,9 +61,9 @@ class CommissionPlanController {
         const userId = getCurrentUserId(req);    
         const commissionPlans : ICommissionPlan[] = await commissionPlanService.getAllCurrent(userId);
 
-      const result = await Promise.all(commissionPlans.map(async a => {
-            const product = await productService.getById(a.productId);
-            const client = await userService.getUserById(a.userId);
+      const result = await Promise.all(commissionPlans?.map(async a => {
+            const product = a.productId && await productService.getById(a.productId);
+            const client = a.userId && await userService.getUserById(product?.userId);
             const r = {
             _id: a._id,
             commissionRate: a.commissionRate,

@@ -6,5 +6,6 @@ export interface Product {
     description: string;
     avatar: string; 
     price: number;
+    userId: string;
     commissionPlan: CommissionPlan;
 }
