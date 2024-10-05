@@ -8,7 +8,10 @@ interface CommissionPlanListProps {
   const CommissionPlanList: React.FC<CommissionPlanListProps> = ({ commissionPlans }) => {
     return (
       <div className="bg-[#1E1F21] p-6 rounded-lg col-span-2 overflow-y-auto">
-        <h3 className="text-xl font-bold mb-4">Plan de commissions</h3>
+        <div className="flex mb-4 justify-between items-center">
+          <h3 className="text-xl font-bold">Plan de commissions</h3>
+          <button className="rounded-full bg-[#2A2F37] px-3 py-2">Ajouter un plan de commission</button>
+        </div>
         <div className="grid grid-cols-4 gap-4 pb-2 mb-2 rounded-md bg-[#2A2F37] uppercase p-2 text-[#7D8490]">
           <span className="font-bold">Apporteur d'affaires</span>
           <span className="font-bold">Commission</span>
