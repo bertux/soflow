@@ -1,26 +1,15 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { IUser } from '../models/user';
 
-// Interface pour l'utilisateur
-interface IUser {
-  _id: string;
-  email: string;
-  name: string;
-  avatar: string;
-  role: number;
-}
-
-// Interface pour le contexte
 interface IUserContext {
   currentUser: IUser | null;
   loading: boolean;
   error: string | null;
 }
 
-// Créer le contexte
 const UserContext = createContext<IUserContext | undefined>(undefined);
 
-// Provider du contexte
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -29,7 +18,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get('/api/current-user'); // Remplacez par l'URL de votre API
+        const response = await axios.get('/api/user');
         setCurrentUser(response.data);
       } catch (err) {
         setError('Unable to fetch current user');
