@@ -1,7 +1,7 @@
 import { CommissionPlan } from "./commissionPlan";
 
 export interface Product {
-    id?: string; 
+    _id?: string; 
     title: string;
     description: string;
     avatar: string; 
