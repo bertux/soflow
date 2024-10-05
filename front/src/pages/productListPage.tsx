@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../models/product';
 import productService from '../services/productService';
+import CommissionPlanList from '../components/apporteurs/commissionsPlanList';
 
 const ProductListPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -52,13 +53,7 @@ const ProductListPage: React.FC = () => {
         </div>
       </div>
 
-      <h2 className="text-xl mt-8">Le plan de commissions</h2>
-      <div className="mt-2">
-        <p>Pourcentage de commission : {product.commissionPlan.commissionRate} %</p>
-        <p>Date de début : {product.commissionPlan.startAt}</p>
-        <p>Date de fin : {product.commissionPlan.endAt}</p>
-        {/* <p>Affilié : {product.commissionPlan.affiliate.name}</p> */}
-      </div>
+      <CommissionPlanList commissionplans={CommissionPlanList} />
     </div>
   );
 };

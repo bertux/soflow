@@ -3,6 +3,6 @@ export interface CommissionPlan {
     commissionRate: number; 
     startAt: string; 
     endAt: string; 
-    affiliateId: string;
+    affiliate: string;
     productId: string;
   }

@@ -29,8 +29,8 @@ const productService = {
   },
 
   // Obtenir tous les produits
-  getAllProducts: async () => {
-    const response = await axios.get(`${API_URL}/products`);
+  getAllProducts: async (userId: string) => {
+    const response = await axios.get(`${API_URL}/products?userId=${userId}`);
     return response.data;
   }
 };

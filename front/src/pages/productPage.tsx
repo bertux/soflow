@@ -2,28 +2,45 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Product } from '../models/product';
 import productService from '../services/productService';
+import { CommissionPlan } from '../models/commissionPlan';
+import commissionPlanService from '../services/commissionPlanService';
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
   const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [commissionPlans, setCommissionPlans] = useState<CommissionPlan[] | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        if (id) {
-            const response = await productService.getProduct(id)
-            setProduct(response.data);
-        }
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
+  const fetchProduct = async () => {
+    try {
+      if (id) {
+          const response = await productService.getProduct(id)
+          setProduct(response);
       }
-    };
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const fetchCommissionPlans = async () => {
+    try {
+      if (id) {
+        const response = await commissionPlanService.getAllCommissionPlans(id)
+        setCommissionPlans(response);
+      }
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {   
     fetchProduct();
+    fetchCommissionPlans();
   }, [id]);
 
   if (loading) {
