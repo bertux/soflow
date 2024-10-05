@@ -49,7 +49,7 @@ const Navbar = () => {
       { 
         currentUser && <div className="flex items-center"  onClick={() => setIsOpen(!isOpen)}>
           <img
-            src={`avatar/${currentUser.avatar}`}
+            src={`/avatar/${currentUser.avatar}`}
             alt="Avatar"
             className="h-10 w-10 rounded-full"
           />

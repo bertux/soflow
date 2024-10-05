@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { productService } from '../services/product.service';
 import { IProduct } from '../models/product.model';
+import { getCurrentUserId } from '../utils/jwt.util';
 
 class ProductController {
   async create(req: Request, res: Response): Promise<void> {
@@ -27,10 +28,11 @@ class ProductController {
 
   async getAll(req: Request, res: Response): Promise<any> {
     try {
-      const products = await productService.getAll();
-      res.json(products);
+        const userId = getCurrentUserId(req);
+        const products = await productService.getAll(userId);
+        res.json(products);
     } catch (error: any) {
-      res.status(400).json({ message: error.message });
+        res.status(400).json({ message: error.message });
     }
   }
 

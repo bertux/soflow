@@ -12,8 +12,8 @@ export interface ICommissionPlan extends Document {
     commissionRate: { type: Number, required: true },
     startAt: { type: String, required: true },
     endAt: { type: String, required: true },
-    productId: { type: String, required: true },
-    affiliateId: { type: String, required: true },
+    productId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    affiliateId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   });
   
-  export const CommissionPlan = mongoose.model<ICommissionPlan>('CommissionPlan', commissionPlanSchema);
+  export const CommissionPlanModel = mongoose.model<ICommissionPlan>('CommissionPlan', commissionPlanSchema);

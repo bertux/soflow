@@ -5,6 +5,7 @@ import productService from '../services/productService';
 import { CommissionPlan } from '../models/commissionPlan';
 import commissionPlanService from '../services/commissionPlanService';
 import CommissionPlanList from '../components/fournisseurs/commissionsPlanList';
+import Container from '../components/container';
 
 const ProductPage: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
@@ -57,21 +58,21 @@ const ProductPage: React.FC = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white">
+    <Container>
       <h1 className="text-3xl font-bold">{product.title}</h1>
-      <div className="flex flex-col md:flex-row mt-4">
+      <div className="flex flex-col md:flex-row my-4">
         <div className="flex-shrink-0">
-          <img src={`product/${product.avatar}`} alt={product.title} className="w-48 h-48 object-cover" />
+          <img src={`/product/${product.avatar}`} alt={product.title} className="w-48 h-48 object-cover" />
         </div>
         <div className="ml-4">
-          <h2 className="text-xl">Les informations</h2>
+          <h2 className="text-xl">Informations</h2>
           <p className="mt-2">{product.description}</p>
-          <p className="mt-4 font-bold">Prix : {product.price} € / mois</p>
+          <p className="text-green-400 font-bold mt-2 text-xl">Prix : {product.price} €</p>
         </div>
       </div>
 
       <CommissionPlanList commissionPlans={commissionPlans} />
-    </div>
+    </Container>
   );
 };
 

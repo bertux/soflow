@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Product } from "../models/product";
 import productService from "../services/productService";
 import { useUserContext } from "../context/user.context";
+import { Link } from "react-router-dom";
+import Container from "../components/container";
 
 const ProductListPage: React.FC = () => {
   const { currentUser } = useUserContext();
@@ -35,30 +37,32 @@ const ProductListPage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <Container>
       <h1 className="text-2xl font-bold mb-6 text-white">Tous vos produits</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <div
-            key={product._id}
-            className="bg-gray-800 p-4 rounded-lg shadow-md transition-transform transform hover:scale-105"
-          >
-            <img
-              src={`product/${product.avatar}`}
-              alt={product.title}
-              className="w-full h-32 object-cover rounded-t-lg"
-            />
-            <div className="mt-4">
-              <h2 className="text-lg font-bold text-white">{product.title}</h2>
-              <p className="text-gray-400">{product.description}</p>
-              <p className="text-green-400 font-bold mt-2">
-                {product.price} € {product.commissionPlan ? '/ mois' : ''}
-              </p>
+          <Link to={`/products/${product._id}`} >
+            <div
+              key={product._id}
+              className="bg-[#1E1F21] p-4 rounded-lg shadow-md transition-transform transform hover:scale-105"
+            >
+              <img
+                src={`/product/${product.avatar}`}
+                alt={product.title}
+                className="w-full h-32 object-cover rounded-t-lg imgProduct"
+              />
+              <div className="mt-4">
+                <h2 className="text-lg font-bold text-white">{product.title}</h2>
+                <p className="text-gray-400">{product.description.substring(0, 200)}...</p>
+                <p className="text-green-400 font-bold mt-2 text-xl">
+                  {product.price} €
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 

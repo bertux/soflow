@@ -1,5 +1,4 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import { CommissionPlan } from "./commissionPlan.model";
 
 export interface IProduct extends Document {
     _id: string; 
@@ -11,12 +10,11 @@ export interface IProduct extends Document {
 }
   
 const productSchema: Schema = new Schema({
-    _id: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     avatar: { type: String, required: true },
     price: { type: Number, required: true },
-    userId: { type: String, required: true },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   });  
 
-  export const Product = mongoose.model<IProduct>('Product', productSchema);
+  export const ProductModel = mongoose.model<IProduct>('Product', productSchema);

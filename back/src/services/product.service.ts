@@ -10,8 +10,8 @@ class ProductService {
     return await productRepository.getProductById(id);
   }
 
-  async getAll(): Promise<IProduct[]> {
-    return await productRepository.getAllProducts();
+  async getAll(userId: string): Promise<IProduct[]> {
+    return await productRepository.getAllProducts(userId);
   }
 
   async update(id: string, data: Partial<IProduct>): Promise<IProduct | null> {

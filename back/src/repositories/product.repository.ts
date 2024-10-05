@@ -1,25 +1,26 @@
-import { Product, IProduct } from '../models/product.model';
+import { ProductModel, IProduct } from '../models/product.model';
+import { ObjectId } from 'mongodb';
 
 class ProductRepository {
   async createProduct(data: IProduct): Promise<IProduct> {
-    const product = new Product(data);
+    const product = new ProductModel(data);
     return await product.save();
   }
 
   async getProductById(id: string): Promise<IProduct | null> {
-    return await Product.findById(id);
+    return await ProductModel.findById(new ObjectId(id));
   }
 
-  async getAllProducts(): Promise<IProduct[]> {
-    return await Product.find();
+  async getAllProducts(userId: string): Promise<IProduct[]> {
+    return await ProductModel.find({ userId: new ObjectId(userId) });
   }
 
   async updateProduct(id: string, data: Partial<IProduct>): Promise<IProduct | null> {
-    return await Product.findByIdAndUpdate(id, data, { new: true });
+    return await ProductModel.findByIdAndUpdate(id, data, { new: true });
   }
 
   async deleteProduct(id: string): Promise<IProduct | null> {
-    return await Product.findByIdAndDelete(id);
+    return await ProductModel.findByIdAndDelete(new ObjectId(id));
   }
 }
 
