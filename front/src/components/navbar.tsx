@@ -12,27 +12,27 @@ const Navbar = () => {
     window.location.href = '/login';
   };
 
-  const renderApporteurMenu = () => {
-    <div className="hidden md:flex space-x-4 ml-6 menu">
+  const renderApporteurMenu = () => (
+      <div className="hidden md:flex space-x-4 ml-6 menu">
         <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
         <Link to="/clients" className="hover:text-gray-400">Clients</Link>
         <Link to="/products" className="hover:text-gray-400">Produits</Link>
     </div>
-  }
+  )
 
-  const renderFournisseurMenu = () => {
+  const renderFournisseurMenu = () => (
     <div className="hidden md:flex space-x-4 ml-6 menu">
         <Link to="/products" className="hover:text-gray-400">Produits</Link>
         <Link to="/clients" className="hover:text-gray-400">Apporteur d'affaires</Link>
         <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
     </div>
-  }
+  )
 
-  const renderNotLoggedMenu: any = () => {
+  const renderNotLoggedMenu: any = () => (
     <div className="hidden md:flex space-x-4 ml-6 menu">
         <Link to="/login" className="hover:text-gray-400">Se connecter</Link>
     </div>
-  }
+  )
 
   return (
     <nav className="navbar flex justify-between items-center bg-[#141414] text-white sticky">
@@ -41,18 +41,20 @@ const Navbar = () => {
             <img src="/logo.svg" alt="Logo" className="h-8 mr-2" />
         </Link>
 
-        { !loading && !currentUser && renderNotLoggedMenu() }
+        { !currentUser && renderNotLoggedMenu() }
         { !loading && currentUser?.role === 1 && renderApporteurMenu() }
         { !loading && currentUser?.role === 2 && renderFournisseurMenu() }
       </div>
 
-      <div className="flex items-center"  onClick={() => setIsOpen(!isOpen)}>
-        <img
-          src="/avatar.png"
-          alt="Avatar"
-          className="h-10 w-10 rounded-full"
-        />
-      </div>
+      { 
+        currentUser && <div className="flex items-center"  onClick={() => setIsOpen(!isOpen)}>
+          <img
+            src="/avatar.png"
+            alt="Avatar"
+            className="h-10 w-10 rounded-full"
+          />
+        </div>
+      }
 
       {isOpen && (
             <div className="absolute top-14 right-6 mt-2 w-48 bg-white rounded-md shadow-lg z-10">

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "CommonJS", // Changez ici à CommonJS
+      "moduleResolution": "Node",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true, // Pour permettre l'importation de modules CommonJS
+      "skipLibCheck": true
+    },
+    "include": [ "src" ],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+  }
+  

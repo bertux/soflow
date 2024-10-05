@@ -9,6 +9,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
 
   try {
     const decoded = verifyToken(token);
+    // @ts-ignore
     req.userId = decoded.userId;
     next();
   } catch (error) {
