@@ -1,15 +1,38 @@
 import { Link } from 'react-router-dom';
 import { logout } from '../services/authService';
 import { useState } from 'react';
+import { useUserContext } from '../context/user.context';
 
 const Navbar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
+  const { currentUser, loading, error } = useUserContext();
 
   const handleLogout = () => {
     logout();
     window.location.href = '/login';
   };
+
+  const renderApporteurMenu = () => {
+    <div className="hidden md:flex space-x-4 ml-6 menu">
+        <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
+        <Link to="/clients" className="hover:text-gray-400">Clients</Link>
+        <Link to="/products" className="hover:text-gray-400">Produits</Link>
+    </div>
+  }
+
+  const renderFournisseurMenu = () => {
+    <div className="hidden md:flex space-x-4 ml-6 menu">
+        <Link to="/products" className="hover:text-gray-400">Produits</Link>
+        <Link to="/clients" className="hover:text-gray-400">Apporteur d'affaires</Link>
+        <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
+    </div>
+  }
+
+  const renderNotLoggedMenu: any = () => {
+    <div className="hidden md:flex space-x-4 ml-6 menu">
+        <Link to="/login" className="hover:text-gray-400">Se connecter</Link>
+    </div>
+  }
 
   return (
     <nav className="navbar flex justify-between items-center bg-[#141414] text-white sticky">
@@ -18,11 +41,9 @@ const Navbar = () => {
             <img src="/logo.svg" alt="Logo" className="h-8 mr-2" />
         </Link>
 
-        <div className="hidden md:flex space-x-4 ml-6 menu">
-            <Link to="/stats" className="hover:text-gray-400">Commissions</Link>
-            <Link to="/clients" className="hover:text-gray-400">Clients</Link>
-            <Link to="/products" className="hover:text-gray-400">Produits</Link>
-        </div>
+        { !loading && !currentUser && renderNotLoggedMenu() }
+        { !loading && currentUser?.role === 1 && renderApporteurMenu() }
+        { !loading && currentUser?.role === 2 && renderFournisseurMenu() }
       </div>
 
       <div className="flex items-center"  onClick={() => setIsOpen(!isOpen)}>
