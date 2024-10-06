@@ -13,4 +13,8 @@ export class UserRepository {
   async findById(userId: string): Promise<IUser | null> {
     return await UserModel.findById(new ObjectId(userId));
   }
+  
+  async getAllUsers(): Promise<IUser[]> {
+    return await UserModel.find();
+  }
 }

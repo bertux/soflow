@@ -35,6 +35,7 @@ app.post('/api/auth/login', (req, res) => authController.login(req, res));
 
 app.get('/api/user/current', (req, res) => userController.getCurrentUser(req, res));
 app.get('/api/user/:id', (req, res) => userController.getUser(req, res));
+app.get('/api/users', (req, res) => userController.getAllUsers(req, res));
 
 app.post('/api/commission-plans', (req, res) => commissionPlanController.create(req, res));
 app.get('/api/commission-plans/current', (req, res) => commissionPlanController.getAllCurrent(req, res));

@@ -7,6 +7,10 @@ class UserService {
   async getUserById(userId: string): Promise<IUser | null> {
     return this.userRepository.findById(userId);
   }
+
+  async getAllUsers(): Promise<IUser[]> {
+    return this.userRepository.getAllUsers();
+  }
 }
 
 
