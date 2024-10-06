@@ -19,7 +19,7 @@ const LoginPage = () => {
       localStorage.setItem('token', user.token);
       setCurrentUser(user);
       axios.defaults.headers.common['Authorization'] = `Bearer ${user.token}`;
-      window.location.href = "http://localhost:3000/dashboard"
+      window.location.href = "https://soflow.vercel.app/dashboard"
     } catch (error) {
       setError('Invalid credentials');
     }
