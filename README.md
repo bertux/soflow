@@ -8,6 +8,12 @@ Here's a README for your project "Soflow" in English, covering the various compo
 
 Soflow is a web application built using a React frontend with TypeScript and Tailwind CSS, and a Node.js backend with TypeScript. It also incorporates web3 functionalities for executing transactions using smart contracts and digital wallets. 
 
+## Contributors
+- Antoine Morand: product manager
+- Alexiane Poisson: product designer
+- Bertrand Juglas: web3 expert
+- Ronan Jaffré: fullstack developer
+
 ## Features
 
 - **Frontend**: Built with React, TypeScript, and styled using Tailwind CSS.
@@ -68,9 +74,3 @@ Soflow integrates web3 functionalities to execute the So Cash framework, which a
 Soflow aims to provide a user-friendly interface for managing digital transactions, empowering users with tools for payment processing and wallet management through an intuitive web application. 
 
 For more information or to contribute, feel free to open issues or submit pull requests!
-
-## contributors
-- Antoine Morand: product manager
-- Alexiane Poisson: product designer
-- Bertrand Juglas: web3 expert
-- Ronan Jaffré: fullstack developer
