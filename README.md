@@ -69,6 +69,8 @@ Soflow aims to provide a user-friendly interface for managing digital transactio
 
 For more information or to contribute, feel free to open issues or submit pull requests!
 
----
-
-Feel free to modify any sections to better fit your project's specifics or to add any additional details you deem necessary!
+## contributors
+- Antoine Morand: product manager
+- Alexiane Poisson: product designer
+- Bertrand Juglas: web3 expert
+- Ronan Jaffré: fullstack developer
