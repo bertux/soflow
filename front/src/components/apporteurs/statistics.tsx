@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useUserContext } from '../../context/user.context';
-import { ethers, JsonRpcProvider, formatUnits } from 'ethers';
+import { ethers, JsonRpcProvider } from 'ethers';
 
 const Statistics: React.FC = () => {const { currentUser } = useUserContext();
 const [balance, setBalance] = useState<string | null>(null);
 
 const getBalance = async () => {
     const affiliateAddress = "0xadA84be0339b9740F5Dce8b9605e595D475e5C97";
-    const provider = new JsonRpcProvider();
+    const provider = new JsonRpcProvider("https://cacib-saturn-test.francecentral.cloudapp.azure.com");
 
     const affiliateAbi = [
       // Some details about the token
@@ -25,7 +25,7 @@ const getBalance = async () => {
     ];
     const affiliateContract = new ethers.Contract(affiliateAddress, affiliateAbi, provider);
     const balance = await affiliateContract.balanceOf(currentUser?.wallet)
-    const formattedBalance = ethers.formatUnits(balance, 18);
+    const formattedBalance = ethers.formatUnits(balance, 2);
     setBalance(formattedBalance);
   }
 

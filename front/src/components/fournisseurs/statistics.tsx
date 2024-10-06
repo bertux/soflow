@@ -8,7 +8,7 @@ const Statistics: React.FC = () => {
 
   const getBalance = async () => {
     const fournisseurAddress = "0xb6fA663CE9a7F4A686294C900e3bf60C75632597";
-    const provider = new JsonRpcProvider();
+    const provider = new JsonRpcProvider("https://cacib-saturn-test.francecentral.cloudapp.azure.com");
 
     const fournisseurAbi = [
       // Some details about the token
@@ -26,7 +26,7 @@ const Statistics: React.FC = () => {
     ];
     const fournisseurContract = new ethers.Contract(fournisseurAddress, fournisseurAbi, provider);
     const balance = await fournisseurContract.balanceOf(currentUser?.wallet)
-    const formattedBalance = ethers.formatUnits(balance, 18);
+    const formattedBalance = ethers.formatUnits(balance, 2);
     setBalance(formattedBalance);
   }
 
