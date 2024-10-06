@@ -4,4 +4,5 @@ export interface IUser {
     name: string;
     avatar: string;
     role: number;
+    wallet: string;
 }
